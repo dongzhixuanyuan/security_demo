@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletRequest
 open class MyTokenFilter() : GenericFilterBean() {
     private val log: Logger = LoggerFactory.getLogger(MyTokenFilter::class.java)
 
-
     @Autowired
     var tokenProvider: TokenProvider? = null
 
@@ -45,7 +44,6 @@ open class MyTokenFilter() : GenericFilterBean() {
                         SecurityContextHolder.getContext().authentication = authenticationToken
                     }
                 }
-                tokenProvider!!.getUserNameFromToken(tokenHeader)
             }
             chain.doFilter(request, response)
         }

@@ -41,6 +41,7 @@ class AppController {
         return "Hello ,spring security!";
     }
 
+//    等同于登录接口
     @ResponseBody
     @RequestMapping(value = arrayOf("/authenticate"), method = arrayOf(RequestMethod.POST))
     fun authorize(@RequestParam userName: String, @RequestParam password: String): String {

@@ -36,17 +36,6 @@ class TokenProvider {
         } else token.expires <= Calendar.getInstance().timeInMillis
     }
 
-    // 从token中识别用户
-    fun getUserNameFromToken(authToken: String): String {
-        if (!StringUtils.hasLength(authToken)) {
-            return ""
-        }
-        val splits = authToken.split("|").toTypedArray()
-        return if (splits != null && splits.size >= 1) {
-            splits[0]
-        } else ""
-    }
-
     fun computeSignature(userDetails: UserDetails, expires: Long): String {
         // 一些特有的信息组装 ,并结合某种加密活摘要算法
         return userDetails.username
